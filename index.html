@@ -280,25 +280,52 @@
       color: var(--muted);
       font-size: 1.05rem;
       max-width: 620px;
-      margin: 0 auto 2.2rem;
+      margin: 0 auto 1.6rem;
     }
 
-    /* CENTER 3D SORA-STYLE FLOATING STAGE */
+    /* CENTER 3D HOLOGRAPHIC QUANTUM CORE STAGE (Replaces Image) */
     .center-3d-stage {
       perspective: 1200px;
       width: 100%;
-      max-width: 440px;
-      height: 390px;
+      max-width: 480px;
+      height: 410px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2rem;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .core-ambient-glow {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(157, 78, 221, 0.45) 0%, rgba(255, 30, 86, 0.22) 45%, rgba(0, 150, 255, 0.1) 70%, transparent 100%);
+      filter: blur(28px);
+      animation: corePulse 3.6s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes corePulse {
+      0% { transform: scale(0.92); opacity: 0.72; }
+      100% { transform: scale(1.16); opacity: 1; }
+    }
+
+    #hero-3d-core {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      z-index: 2;
     }
 
     .avatar-rig {
-      position: relative;
-      width: 310px;
+      position: absolute;
+      width: 320px;
       height: 360px;
       transform-style: preserve-3d;
       display: flex;
@@ -306,87 +333,8 @@
       align-items: center;
       justify-content: center;
       will-change: transform;
-    }
-
-    .orbit-ring {
-      position: absolute;
-      border-radius: 50%;
       pointer-events: none;
-      transform-style: preserve-3d;
-    }
-
-    .orbit-1 {
-      width: 340px; height: 340px;
-      border: 2px solid rgba(255, 30, 86, 0.55);
-      box-shadow: 0 0 25px rgba(255, 30, 86, 0.25);
-      transform: translateZ(-30px) rotateX(70deg) rotateY(15deg);
-      animation: orbitSpin1 9s linear infinite;
-    }
-
-    .orbit-2 {
-      width: 370px; height: 370px;
-      border: 2px dashed rgba(0, 150, 255, 0.55);
-      box-shadow: 0 0 25px rgba(0, 150, 255, 0.2);
-      transform: translateZ(-20px) rotateX(-68deg) rotateY(-20deg);
-      animation: orbitSpin2 12s linear infinite;
-    }
-
-    @keyframes orbitSpin1 {
-      0% { transform: translateZ(-30px) rotateX(70deg) rotateY(15deg) rotateZ(0deg); }
-      100% { transform: translateZ(-30px) rotateX(70deg) rotateY(15deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbitSpin2 {
-      0% { transform: translateZ(-20px) rotateX(-68deg) rotateY(-20deg) rotateZ(360deg); }
-      100% { transform: translateZ(-20px) rotateX(-68deg) rotateY(-20deg) rotateZ(0deg); }
-    }
-
-    .halo-glow {
-      position: absolute;
-      width: 265px; height: 265px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, var(--red), var(--violet), var(--blue), var(--red));
-      transform: translateZ(-15px);
-      animation: spinHalo 5s linear infinite;
-      filter: blur(4px);
-      opacity: 0.9;
-    }
-
-    @keyframes spinHalo {
-      to { transform: translateZ(-15px) rotate(360deg); }
-    }
-
-    .avatar-orb {
-      position: relative;
-      width: 242px; height: 242px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #ffffff;
-      border: 3px solid rgba(4, 2, 10, 0.95);
-      transform: translateZ(35px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(157, 78, 221, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .avatar-orb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: 62% 52%;
-      transform: scale(1.18);
-      will-change: transform;
-    }
-
-    .avatar-fallback {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      color: #0f172a;
-      font-size: 0.85rem;
-      font-weight: 700;
+      z-index: 3;
     }
 
     .chip-3d {
@@ -401,11 +349,53 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
       white-space: nowrap;
       pointer-events: none;
+      animation: chipFloat 3.8s ease-in-out infinite alternate;
     }
 
-    .c-left { top: 45px; left: -38px; transform: translateZ(75px); border: 1px solid var(--red); color: #ffd6e0; }
-    .c-right { top: 85px; right: -42px; transform: translateZ(85px); border: 1px solid var(--blue); color: #cfeaff; }
-    .c-bottom { bottom: 32px; transform: translateZ(65px); border: 1px solid var(--violet); color: #ebd9ff; }
+    @keyframes chipFloat {
+      0% { margin-top: 0px; }
+      100% { margin-top: -9px; }
+    }
+
+    .c-left {
+      top: 46px;
+      left: -34px;
+      transform: translateZ(75px);
+      border: 1px solid var(--red);
+      color: #ffd6e0;
+      box-shadow: 0 0 18px rgba(255, 30, 86, 0.25);
+    }
+
+    .c-right {
+      top: 86px;
+      right: -38px;
+      transform: translateZ(85px);
+      border: 1px solid var(--blue);
+      color: #cfeaff;
+      animation-delay: -1.4s;
+      box-shadow: 0 0 18px rgba(0, 150, 255, 0.25);
+    }
+
+    .c-bottom {
+      bottom: 34px;
+      transform: translateZ(65px);
+      border: 1px solid var(--violet);
+      color: #ebd9ff;
+      animation-delay: -2.6s;
+      box-shadow: 0 0 18px rgba(157, 78, 221, 0.25);
+    }
+
+    .core-hint {
+      position: absolute;
+      bottom: -2px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 1.6px;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 4;
+    }
 
     .hero-actions {
       display: flex;
@@ -685,10 +675,10 @@
       header { padding: 0.7rem 1.1rem; }
       .cta-box { padding: 2rem 1.3rem; }
       section { padding: 4.5rem 0; }
-      .center-3d-stage { height: 340px; }
-      .avatar-rig { transform: scale(0.86); }
-      .c-left { left: -12px; }
-      .c-right { right: -12px; }
+      .center-3d-stage { height: 350px; }
+      .avatar-rig { transform: scale(0.85); }
+      .c-left { left: -8px; }
+      .c-right { right: -8px; }
     }
   </style>
 </head>
@@ -731,7 +721,7 @@
     <a href="#contact" class="nav-cta hover-target">CONTACT ↗</a>
   </header>
 
-  <!-- Centered Hero with 3D Look Left-Right Avatar -->
+  <!-- Centered Hero with 3D Interactive Quantum Core -->
   <main class="container">
     <section id="home" class="hero">
       <div class="hero-top-pill hero-fade">
@@ -748,30 +738,18 @@
         crafting interactive web applications and reliable software solutions.
       </p>
 
-      <!-- CENTERED 3D STAGE (Looking Left <-> Right smoothly) -->
-      <div class="center-3d-stage hero-fade">
-        <div class="avatar-rig" id="avatarRig">
-          <div class="orbit-ring orbit-1"></div>
-          <div class="orbit-ring orbit-2"></div>
-          <div class="halo-glow"></div>
+      <!-- CENTERED 3D HOLOGRAPHIC QUANTUM CORE (Replaces Image) -->
+      <div class="center-3d-stage hero-fade hover-target" id="coreStage" title="Click or move cursor to interact!">
+        <div class="core-ambient-glow"></div>
+        <canvas id="hero-3d-core"></canvas>
 
+        <div class="avatar-rig" id="avatarRig">
           <div class="chip-3d c-left">⚡ React / JS</div>
           <div class="chip-3d c-right">☕ Java / Python</div>
           <div class="chip-3d c-bottom">🗄️ MySQL • PHP • C++</div>
-
-          <div class="avatar-orb">
-            <img
-              id="avatarImg"
-              src="avatar.png"
-              alt="Jegath M"
-              onerror="this.style.display='none'; document.getElementById('avatarFallback').style.display='flex';"
-            />
-            <div class="avatar-fallback" id="avatarFallback">
-              <span style="font-size: 2rem; margin-bottom: 0.4rem;">🧑‍💻</span>
-              Save image as<br /><strong>avatar.png</strong>
-            </div>
-          </div>
         </div>
+
+        <div class="core-hint">✦ Interactive 3D Core • Tap / Move ✦</div>
       </div>
 
       <div class="hero-actions hero-fade">
@@ -1063,9 +1041,8 @@
       });
     });
 
-    // 2. Smooth 3D Left-Right Looking Motion + Mouse Follow for Center Avatar
+    // 2. Smooth 3D Mouse Tilt for Floating Tech Chips
     const avatarRig = document.getElementById('avatarRig');
-    const avatarImg = document.getElementById('avatarImg');
     let targetMX = 0, targetMY = 0, curMX = 0, curMY = 0;
 
     window.addEventListener('mousemove', (e) => {
@@ -1073,26 +1050,22 @@
       targetMY = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
-    function animateAvatar3D(time) {
+    function animateChips3D(time) {
       const t = time * 0.001;
       curMX += (targetMX - curMX) * 0.06;
       curMY += (targetMY - curMY) * 0.06;
 
-      const autoYaw = Math.sin(t * 1.15) * 16;
-      const autoPitch = Math.cos(t * 0.85) * 5;
+      const autoYaw = Math.sin(t * 1.0) * 10;
+      const autoPitch = Math.cos(t * 0.8) * 4;
       const yaw = autoYaw + curMX * 14;
       const pitch = autoPitch - curMY * 10;
 
       if (avatarRig) {
         avatarRig.style.transform = `rotateY(${yaw.toFixed(2)}deg) rotateX(${pitch.toFixed(2)}deg)`;
       }
-      if (avatarImg && avatarImg.style.display !== 'none') {
-        const shiftX = (yaw * 0.35).toFixed(2);
-        avatarImg.style.transform = `scale(1.18) translateX(${shiftX}px)`;
-      }
-      requestAnimationFrame(animateAvatar3D);
+      requestAnimationFrame(animateChips3D);
     }
-    requestAnimationFrame(animateAvatar3D);
+    requestAnimationFrame(animateChips3D);
 
     // 3. Magnetic Cursor
     const cursorDot = document.getElementById('cursorDot');
@@ -1190,8 +1163,9 @@
       preloader.style.display = 'none';
     }
 
-    // 6. Three.js Red + Blue + Violet 3D Galaxy & Wireframe Sculpture
+    // 6. Three.js Background + Center 3D Holographic Quantum Core
     if (typeof THREE !== 'undefined') {
+      // --- A. BACKGROUND 3D GALAXY & TORUS KNOT ---
       const canvas = document.getElementById('webgl-bg');
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -1206,22 +1180,22 @@
         color: 0x9d4edd,
         wireframe: true,
         transparent: true,
-        opacity: 0.13
+        opacity: 0.11
       });
       const knotMesh = new THREE.Mesh(knotGeo, wireMat);
 
       const pointsMat = new THREE.PointsMaterial({
         color: 0xff1e56,
-        size: 0.032,
+        size: 0.03,
         transparent: true,
-        opacity: 0.75
+        opacity: 0.65
       });
       const knotPoints = new THREE.Points(knotGeo, pointsMat);
 
       const sculptureGroup = new THREE.Group();
       sculptureGroup.add(knotMesh);
       sculptureGroup.add(knotPoints);
-      sculptureGroup.position.set(0, -0.2, -2.2);
+      sculptureGroup.position.set(0, -0.2, -2.5);
       scene.add(sculptureGroup);
 
       const starCount = 900;
@@ -1280,6 +1254,191 @@
         renderer.render(scene, camera);
       }
       animate3DScene();
+
+      // --- B. CENTER HERO 3D HOLOGRAPHIC QUANTUM CORE (Replaces Avatar Image) ---
+      const coreStage = document.getElementById('coreStage');
+      const heroCanvas = document.getElementById('hero-3d-core');
+
+      if (coreStage && heroCanvas) {
+        const initW = coreStage.clientWidth || 460;
+        const initH = coreStage.clientHeight || 410;
+
+        const coreScene = new THREE.Scene();
+        const coreCam = new THREE.PerspectiveCamera(45, initW / initH, 0.1, 100);
+        coreCam.position.z = 5.6;
+
+        const coreRenderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+        coreRenderer.setSize(initW, initH);
+        coreRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // 3D Colored Neon Lights for Crystal Reflections
+        coreScene.add(new THREE.AmbientLight(0xffffff, 0.5));
+        const lightRed = new THREE.PointLight(0xff1e56, 3.8, 14);
+        const lightBlue = new THREE.PointLight(0x0096ff, 3.8, 14);
+        const lightViolet = new THREE.PointLight(0x9d4edd, 3.2, 14);
+        coreScene.add(lightRed, lightBlue, lightViolet);
+
+        const masterCore = new THREE.Group();
+        coreScene.add(masterCore);
+
+        // 1. Inner Glowing Ruby Octahedron Nucleus
+        const nucleusMesh = new THREE.Mesh(
+          new THREE.OctahedronGeometry(0.45, 0),
+          new THREE.MeshBasicMaterial({ color: 0xff1e56, wireframe: true, transparent: true, opacity: 0.92 })
+        );
+        masterCore.add(nucleusMesh);
+
+        // 2. Faceted Glossy Crystal Icosahedron + Glowing Cyan Edges
+        const crystalGeo = new THREE.IcosahedronGeometry(0.9, 0);
+        const crystalMat = new THREE.MeshPhongMaterial({
+          color: 0x160a2e,
+          emissive: 0x4c1d95,
+          emissiveIntensity: 0.65,
+          specular: 0x38bdf8,
+          shininess: 120,
+          flatShading: true,
+          transparent: true,
+          opacity: 0.9
+        });
+        const crystalMesh = new THREE.Mesh(crystalGeo, crystalMat);
+        crystalMesh.add(new THREE.LineSegments(
+          new THREE.EdgesGeometry(crystalGeo),
+          new THREE.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.8 })
+        ));
+        masterCore.add(crystalMesh);
+
+        // 3. Outer Geodesic Wireframe Energy Shield + Vertex Dots
+        const cageGeo = new THREE.IcosahedronGeometry(1.18, 1);
+        const cageWire = new THREE.Mesh(
+          cageGeo,
+          new THREE.MeshBasicMaterial({ color: 0x0096ff, wireframe: true, transparent: true, opacity: 0.28 })
+        );
+        const cageDots = new THREE.Points(
+          cageGeo,
+          new THREE.PointsMaterial({ color: 0xff1e56, size: 0.06, transparent: true, opacity: 0.95 })
+        );
+        const cageGroup = new THREE.Group();
+        cageGroup.add(cageWire, cageDots);
+        masterCore.add(cageGroup);
+
+        // 4. Three 3D Gyroscope Rings + Orbiting Satellites
+        function makeGyroRing(radius, tube, colorHex, tiltX, tiltY) {
+          const group = new THREE.Group();
+          group.rotation.x = tiltX;
+          group.rotation.y = tiltY;
+
+          const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(radius, tube, 16, 100),
+            new THREE.MeshBasicMaterial({ color: colorHex, transparent: true, opacity: 0.85 })
+          );
+          group.add(ring);
+
+          const sat = new THREE.Mesh(
+            new THREE.SphereGeometry(0.065, 16, 16),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+          );
+          sat.position.set(radius, 0, 0);
+          sat.add(new THREE.Mesh(
+            new THREE.SphereGeometry(0.12, 16, 16),
+            new THREE.MeshBasicMaterial({ color: colorHex, transparent: true, opacity: 0.45 })
+          ));
+          group.add(sat);
+
+          masterCore.add(group);
+          return group;
+        }
+
+        const gyro1 = makeGyroRing(1.48, 0.02, 0xff1e56, Math.PI * 0.36, Math.PI * 0.14);
+        const gyro2 = makeGyroRing(1.68, 0.017, 0x0096ff, -Math.PI * 0.34, -Math.PI * 0.22);
+        const gyro3 = makeGyroRing(1.86, 0.014, 0x9d4edd, Math.PI * 0.14, Math.PI * 0.42);
+
+        // 5. Swirling 3D Stardust Halo
+        const pCount = 240;
+        const pPos = new Float32Array(pCount * 3);
+        const pColors = new Float32Array(pCount * 3);
+        for (let i = 0; i < pCount; i++) {
+          const r = 1.35 + Math.random() * 1.05;
+          const theta = Math.random() * Math.PI * 2;
+          const phi = Math.acos(2 * Math.random() - 1);
+          pPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+          pPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+          pPos[i * 3 + 2] = r * Math.cos(phi);
+
+          const c = palette[i % 3];
+          pColors[i * 3] = c.r;
+          pColors[i * 3 + 1] = c.g;
+          pColors[i * 3 + 2] = c.b;
+        }
+        const pGeo = new THREE.BufferGeometry();
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        pGeo.setAttribute('color', new THREE.BufferAttribute(pColors, 3));
+        const particleHalo = new THREE.Points(
+          pGeo,
+          new THREE.PointsMaterial({ size: 0.045, vertexColors: true, transparent: true, opacity: 0.9 })
+        );
+        masterCore.add(particleHalo);
+
+        // Hover & Click Turbo Pulse Interaction
+        let isHovered = false;
+        let pulseBoost = 0;
+        coreStage.addEventListener('mouseenter', () => { isHovered = true; });
+        coreStage.addEventListener('mouseleave', () => { isHovered = false; });
+        coreStage.addEventListener('click', () => { pulseBoost = 1.0; });
+
+        window.addEventListener('resize', () => {
+          const w = coreStage.clientWidth || 400;
+          const h = coreStage.clientHeight || 350;
+          coreCam.aspect = w / h;
+          coreCam.updateProjectionMatrix();
+          coreRenderer.setSize(w, h);
+        });
+
+        const coreClock = new THREE.Clock();
+        function renderHeroCore() {
+          requestAnimationFrame(renderHeroCore);
+          const t = coreClock.getElapsedTime();
+
+          pulseBoost *= 0.93;
+          const speed = (isHovered ? 1.8 : 1.0) + pulseBoost * 4.5;
+
+          // Orbiting neon lights
+          lightRed.position.set(Math.cos(t * 1.4) * 3.2, Math.sin(t * 1.1) * 2.2, 2.5);
+          lightBlue.position.set(Math.sin(t * 1.2) * -3.2, Math.cos(t * 1.5) * 2.2, 2.2);
+          lightViolet.position.set(0, Math.sin(t * 0.9) * 3.0, -2.5);
+
+          // Float & mouse look
+          masterCore.position.y = Math.sin(t * 1.6) * 0.1;
+          masterCore.rotation.y += (curMX * 0.75 - masterCore.rotation.y) * 0.06;
+          masterCore.rotation.x += (curMY * 0.5 - masterCore.rotation.x) * 0.06;
+          masterCore.scale.setScalar(1 + pulseBoost * 0.15);
+
+          // Inner nucleus + crystal rotation & breathing
+          const breathe = 1 + Math.sin(t * 2.5) * 0.05;
+          nucleusMesh.rotation.y -= 0.025 * speed;
+          nucleusMesh.rotation.x += 0.015 * speed;
+
+          crystalMesh.scale.setScalar(breathe);
+          crystalMesh.rotation.y += 0.012 * speed;
+          crystalMesh.rotation.x += 0.008 * speed;
+
+          // Outer cage counter-rotation
+          cageGroup.rotation.y -= 0.008 * speed;
+          cageGroup.rotation.z += 0.005 * speed;
+
+          // Gyroscope rings spinning
+          gyro1.rotation.z += 0.02 * speed;
+          gyro2.rotation.z -= 0.017 * speed;
+          gyro3.rotation.z += 0.014 * speed;
+          gyro3.rotation.x += 0.004 * speed;
+
+          // Stardust swirl
+          particleHalo.rotation.y += 0.005 * speed;
+          particleHalo.rotation.x = Math.sin(t * 0.5) * 0.2;
+
+          coreRenderer.render(coreScene, coreCam);
+        }
+        renderHeroCore();
+      }
     }
   </script>
 </body>
