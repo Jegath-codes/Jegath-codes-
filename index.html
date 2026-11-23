@@ -179,6 +179,1510 @@
       z-index: 2;
     }
 
+    /* Navbar (Scrolls up naturally with the page) */
+    header {
+      position: absolute;
+      top: 1.15rem; left: 50%;
+      transform: translateX(-50%);
+      width: min(92%, 1160px);
+      z-index: 500;
+      background: rgba(10, 6, 22, 0.72);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 12px var(--red);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: color 0.25s; }
+    .nav-links a:hover { color: var(--red); }
+
+    .nav-cta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 30, 86, 0.2), rgba(0, 150, 255, 0.2));
+      border: 1px solid rgba(157, 78, 221, 0.55);
+      color: var(--text);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--red), var(--violet), var(--blue));
+      box-shadow: 0 0 22px rgba(255, 30, 86, 0.45);
+    }
+
+    /* Centered Cinematic Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 7.5rem 0 4rem;
+    }
+
+    .hero-top-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(157, 78, 221, 0.14);
+      border: 1px solid rgba(157, 78, 221, 0.45);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: #e9d5ff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .line-mask { overflow: hidden; display: block; }
+    .line-inner { display: block; }
+
+    /* Typing Animation Line */
+    .typing-line {
+      font-size: clamp(1.25rem, 3.4vw, 2.8rem);
+      line-height: 1.25;
+      min-height: 1.35em;
+      margin-top: 0.45rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .type-cursor {
+      display: inline-block;
+      color: var(--red);
+      margin-left: 4px;
+      font-weight: 700;
+      text-shadow: 0 0 12px var(--red);
+      animation: blinkCursor 0.75s step-end infinite;
+    }
+
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 1.6rem;
+    }
+
+    /* CENTER 3D HOLOGRAPHIC QUANTUM CORE STAGE (No Image) */
+    .center-3d-stage {
+      perspective: 1200px;
+      width: 100%;
+      max-width: 480px;
+      height: 410px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 0 auto 2rem;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .core-ambient-glow {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(157, 78, 221, 0.45) 0%, rgba(255, 30, 86, 0.22) 45%, rgba(0, 150, 255, 0.1) 70%, transparent 100%);
+      filter: blur(28px);
+      animation: corePulse 3.6s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes corePulse {
+      0% { transform: scale(0.92); opacity: 0.72; }
+      100% { transform: scale(1.16); opacity: 1; }
+    }
+
+    #hero-3d-core {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar-rig {
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      transform-style: preserve-3d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      will-change: transform;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .chip-3d {
+      position: absolute;
+      padding: 0.48rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(8, 6, 20, 0.88);
+      backdrop-filter: blur(12px);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      color: #ffffff;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+      white-space: nowrap;
+      pointer-events: none;
+      animation: chipFloat 3.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes chipFloat {
+      0% { margin-top: 0px; }
+      100% { margin-top: -9px; }
+    }
+
+    .c-left {
+      top: 46px;
+      left: -34px;
+      transform: translateZ(75px);
+      border: 1px solid var(--red);
+      color: #ffd6e0;
+      box-shadow: 0 0 18px rgba(255, 30, 86, 0.25);
+    }
+
+    .c-right {
+      top: 86px;
+      right: -38px;
+      transform: translateZ(85px);
+      border: 1px solid var(--blue);
+      color: #cfeaff;
+      animation-delay: -1.4s;
+      box-shadow: 0 0 18px rgba(0, 150, 255, 0.25);
+    }
+
+    .c-bottom {
+      bottom: 34px;
+      transform: translateZ(65px);
+      border: 1px solid var(--violet);
+      color: #ebd9ff;
+      animation-delay: -2.6s;
+      box-shadow: 0 0 18px rgba(157, 78, 221, 0.25);
+    }
+
+    .core-hint {
+      position: absolute;
+      bottom: -2px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 1.6px;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .mag-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.92rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(14px);
+      color: var(--text);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+
+    .mag-btn.primary {
+      background: linear-gradient(135deg, var(--red), var(--violet), var(--blue));
+      border-color: transparent;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(255, 30, 86, 0.35);
+    }
+
+    .mag-btn.primary:hover {
+      box-shadow: 0 12px 38px rgba(0, 150, 255, 0.5);
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    .mag-btn:hover { border-color: var(--blue); transform: translateY(-2px); }
+
+    /* Marquee */
+    .marquee-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+      overflow: hidden;
+      background: rgba(157, 78, 221, 0.05);
+      position: relative;
+      z-index: 2;
+    }
+
+    .marquee-track { display: flex; width: max-content; animation: marquee 24s linear infinite; }
+    .marquee-item {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 0 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+    .marquee-item span { color: var(--red); }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Sections */
+    section { padding: 6rem 0; }
+    .sec-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .sec-head h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    /* Bento Grid */
+    .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; }
+    .bento-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      transition: transform 0.35s, border-color 0.35s, background 0.35s;
+    }
+    .bento-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 30, 86, 0.16), rgba(0, 150, 255, 0.12), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.35s;
+      pointer-events: none;
+    }
+    .bento-card:hover::before { opacity: 1; }
+    .bento-card:hover {
+      border-color: rgba(0, 150, 255, 0.5);
+      background: var(--surface-hover);
+      transform: translateY(-4px);
+    }
+
+    .col-7 { grid-column: span 7; }
+    .col-5 { grid-column: span 5; }
+
+    .big-stat {
+      font-family: 'Syne', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--red), var(--violet), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+    .pill {
+      padding: 0.42rem 0.92rem;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      transition: border-color 0.25s, color 0.25s, transform 0.25s;
+    }
+    .pill:hover { border-color: var(--red); color: var(--blue); transform: translateY(-2px); }
+
+    /* Project Row */
+    .project-row {
+      display: grid;
+      grid-template-columns: 0.35fr 1.65fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(20px);
+      transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+    }
+    .project-row:hover {
+      transform: scale(1.015);
+      border-color: rgba(255, 30, 86, 0.55);
+      box-shadow: 0 20px 50px rgba(157, 78, 221, 0.2);
+    }
+    .proj-num { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: rgba(255, 255, 255, 0.2); }
+    .project-row:hover .proj-num { color: var(--red); }
+    .proj-info h3 { font-family: 'Syne', sans-serif; font-size: 1.8rem; margin: 0.35rem 0 0.7rem; }
+    .proj-info p { color: var(--muted); font-size: 0.96rem; }
+    .proj-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1.2rem; }
+
+    /* Stack Rows */
+    .stack-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      padding: 1.65rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background 0.3s, padding-left 0.3s;
+    }
+    .stack-row:hover { background: rgba(0, 150, 255, 0.06); padding-left: 2rem; }
+    .stack-cat { font-family: 'Syne', sans-serif; font-size: 1.22rem; font-weight: 700; }
+
+    /* Education */
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+    /* Contact Box */
+    .cta-box {
+      border-radius: 2rem;
+      border: 1px solid rgba(157, 78, 221, 0.35);
+      background: linear-gradient(145deg, rgba(255, 30, 86, 0.08), rgba(157, 78, 221, 0.1), rgba(0, 150, 255, 0.08));
+      backdrop-filter: blur(22px);
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .cta-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 800; line-height: 1.06; margin: 0.8rem 0 1.2rem; }
+
+    .profile-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin: 1.4rem 0 2rem;
+      padding: 1.35rem;
+      border-radius: 1.1rem;
+      background: rgba(4, 2, 10, 0.65);
+      border: 1px solid var(--border);
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.92rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.09);
+      padding-bottom: 0.55rem;
+    }
+    .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--blue); text-transform: uppercase; }
+    .detail-val { color: var(--text); font-weight: 500; }
+
+    .form-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.75rem;
+      border-radius: 1.3rem;
+      background: rgba(4, 2, 10, 0.68);
+      border: 1px solid var(--border);
+    }
+    .form-box input, .form-box textarea {
+      width: 100%;
+      padding: 0.95rem 1.1rem;
+      border-radius: 0.8rem;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.94rem;
+      outline: none;
+    }
+    .form-box input:focus, .form-box textarea:focus { border-color: var(--red); }
+
+    footer {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      background: linear-gradient(135deg, var(--red), var(--violet), var(--blue));
+      color: #ffffff;
+      padding: 0.85rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 960px) {
+      .project-row, .cta-box, .stack-row, .edu-grid { grid-template-columns: 1fr; }
+      .proj-right { align-items: flex-start; }
+      .col-7, .col-5 { grid-column: span 12; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      header { padding: 0.7rem 1.1rem; }
+      .cta-box { padding: 2rem 1.3rem; }
+      section { padding: 4.5rem 0; }
+      .typing-line { min-height: 2.5em; }
+      .center-3d-stage { height: 350px; }
+      .avatar-rig { transform: scale(0.85); }
+      .c-left { left: -8px; }
+      .c-right { right: -8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Red, Blue & Violet Aurora Background -->
+  <div class="aurora-bg">
+    <div class="aurora-blob blob-red"></div>
+    <div class="aurora-blob blob-blue"></div>
+    <div class="aurora-blob blob-violet"></div>
+  </div>
+  <div class="noise"></div>
+  <canvas id="webgl-bg"></canvas>
+
+  <!-- Custom Magnetic Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-top">
+      <span>JEGATH M // PORTFOLIO</span>
+      <span>SALEM, TAMIL NADU</span>
+    </div>
+    <div>
+      <div class="preloader-count" id="preCount">0%</div>
+      <div class="preloader-bar-wrap"><div class="preloader-bar" id="preBar"></div></div>
+    </div>
+  </div>
+
+  <!-- Navbar (Scrolls up with the page) -->
+  <header>
+    <a href="#home" class="brand hover-target"><span class="status-dot"></span> JEGATH.M</a>
+    <ul class="nav-links">
+      <li><a href="#about" class="hover-target">About</a></li>
+      <li><a href="#work" class="hover-target">Project</a></li>
+      <li><a href="#stack" class="hover-target">Skills</a></li>
+      <li><a href="#education" class="hover-target">Education</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta hover-target">CONTACT ↗</a>
+  </header>
+
+  <!-- Centered Hero with Typing Animation & 3D Interactive Quantum Core -->
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-top-pill hero-fade">
+        <span class="status-dot"></span> BCA GRADUATE (2022–2026) • SALEM, INDIA
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line-mask"><span class="line-inner hero-anim grad-text">JEGATH M</span></span>
+        <span class="line-mask typing-line">
+          <span class="line-inner hero-anim">
+            <span id="typedRole">FULL STACK WEB DEVELOPER</span><span class="type-cursor">|</span>
+          </span>
+        </span>
+      </h1>
+
+      <p class="hero-sub hero-fade">
+        Bachelor of Computer Applications graduate skilled in Java, Python, React, PHP, and MySQL —
+        crafting interactive web applications and reliable software solutions.
+      </p>
+
+      <!-- CENTERED 3D HOLOGRAPHIC QUANTUM CORE (No Image) -->
+      <div class="center-3d-stage hero-fade hover-target" id="coreStage" title="Click or move cursor to interact!">
+        <div class="core-ambient-glow"></div>
+        <canvas id="hero-3d-core"></canvas>
+
+        <div class="avatar-rig" id="avatarRig">
+          <div class="chip-3d c-left">⚡ React / JS</div>
+          <div class="chip-3d c-right">☕ Java / Python</div>
+          <div class="chip-3d c-bottom">🗄️ MySQL • PHP • C++</div>
+        </div>
+
+        <div class="core-hint">✦ Interactive 3D Core • Tap / Move ✦</div>
+      </div>
+
+      <div class="hero-actions hero-fade">
+        <a href="#work" class="mag-btn primary hover-target">Explore Project ↓</a>
+        <a href="https://github.com/Jegath-codes" target="_blank" rel="noopener noreferrer" class="mag-btn hover-target">GitHub Profile ↗</a>
+        <a href="mailto:jegath.mahe@gmail.com" class="mag-btn hover-target">Email Me ✉</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Kinetic Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <div class="marquee-item">Web Development <span>✦</span> Java <span>✦</span> Python <span>✦</span> React <span>✦</span> JavaScript <span>✦</span> PHP <span>✦</span> MySQL <span>✦</span> C / C++ <span>✦</span></div>
+      <div class="marquee-item">Web Development <span>✦</span> Java <span>✦</span> Python <span>✦</span> React <span>✦</span> JavaScript <span>✦</span> PHP <span>✦</span> MySQL <span>✦</span> C / C++ <span>✦</span></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- 01 / About -->
+    <section id="about">
+      <div class="sec-head">
+        <div>
+          <span class="mono">[01] — ABOUT JEGATH M</span>
+          <h2>Profile &amp; Strengths</h2>
+        </div>
+        <span class="mono">ENGLISH &amp; TAMIL FLUENT</span>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card col-7 gs-reveal">
+          <span class="mono">CAREER OBJECTIVE</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.5rem; margin: 0.75rem 0 1rem;">
+            Growing Through Code &amp; Continuous Learning
+          </h3>
+          <p style="color: var(--muted); font-size: 0.98rem;">
+            I am <strong style="color: var(--text);">Jegath M</strong> from <strong style="color: var(--text);">Salem, Tamil Nadu</strong>.
+            I completed my <strong style="color: var(--text);">Bachelor of Computer Applications (BCA)</strong> at
+            <strong style="color: var(--text);">Loyola College of Arts and Science</strong> (2022–2026). I aim to build a
+            successful career in a growth-oriented organization where I can apply my programming, web development,
+            and problem-solving skills effectively.
+          </p>
+        </div>
+
+        <div class="bento-card col-5 gs-reveal">
+          <span class="mono">DEGREE &amp; CGPA</span>
+          <div class="big-stat">6.5 CGPA</div>
+          <p style="color: var(--muted); font-size: 0.92rem;">
+            UG: Bachelor of Computer Applications (BCA)<br />
+            Loyola College of Arts and Science (2022–2026)
+          </p>
+        </div>
+
+        <div class="bento-card col-5 gs-reveal">
+          <span class="mono">AREAS OF INTEREST</span>
+          <div class="pill-wrap">
+            <span class="pill">Web Development</span>
+            <span class="pill">Software Development</span>
+            <span class="pill">Database Management</span>
+            <span class="pill">Problem Solving</span>
+            <span class="pill">Customer Relationship Management</span>
+          </div>
+        </div>
+
+        <div class="bento-card col-7 gs-reveal">
+          <span class="mono">KEY STRENGTHS</span>
+          <div class="pill-wrap">
+            <span class="pill">Good Communication (English &amp; Tamil)</span>
+            <span class="pill">Quick Learner with Strong Technical Aptitude</span>
+            <span class="pill">Problem-Solving Ability</span>
+            <span class="pill">Teamwork &amp; Time Management</span>
+            <span class="pill">Customer Handling Ability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / Project -->
+    <section id="work">
+      <div class="sec-head">
+        <div>
+          <span class="mono">[02] — ACADEMIC PROJECT</span>
+          <h2>Featured Work</h2>
+        </div>
+        <span class="mono">TEAM COLLABORATION</span>
+      </div>
+
+      <div class="project-row gs-reveal hover-target">
+        <div class="proj-num">01</div>
+        <div class="proj-info">
+          <span class="mono">ACADEMIC TEAM PROJECT</span>
+          <h3>Online Hostel Management System</h3>
+          <p>
+            Collaboratively developed an Online Hostel Management System as part of an academic team project.
+            Contributed to project development and gained practical experience in teamwork, module coordination,
+            and problem-solving.
+          </p>
+        </div>
+        <div class="proj-right">
+          <div class="pill-wrap" style="justify-content: flex-end; margin-top: 0;">
+            <span class="pill">Web Development</span>
+            <span class="pill">Database</span>
+            <span class="pill">Teamwork</span>
+          </div>
+          <a href="https://github.com/Jegath-codes" target="_blank" rel="noopener noreferrer" class="mag-btn hover-target">
+            GitHub Profile ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / Technical Skills -->
+    <section id="stack">
+      <div class="sec-head">
+        <div>
+          <span class="mono">[03] — TECHNICAL SKILLS</span>
+          <h2>Skills &amp; Coursework</h2>
+        </div>
+        <span class="mono">PROGRAMMING &amp; TOOLS</span>
+      </div>
+
+      <div class="stack-row gs-reveal">
+        <div class="stack-cat">01 / Programming</div>
+        <div class="pill-wrap" style="margin-top: 0;">
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">C</span>
+          <span class="pill">C++</span>
+        </div>
+      </div>
+
+      <div class="stack-row gs-reveal">
+        <div class="stack-cat">02 / Web Technologies</div>
+        <div class="pill-wrap" style="margin-top: 0;">
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">React</span>
+          <span class="pill">PHP</span>
+        </div>
+      </div>
+
+      <div class="stack-row gs-reveal">
+        <div class="stack-cat">03 / Databases</div>
+        <div class="pill-wrap" style="margin-top: 0;">
+          <span class="pill">MySQL</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+
+      <div class="stack-row gs-reveal">
+        <div class="stack-cat">04 / Tools &amp; Office</div>
+        <div class="pill-wrap" style="margin-top: 0;">
+          <span class="pill">VS Code</span>
+          <span class="pill">Git</span>
+          <span class="pill">GitHub</span>
+          <span class="pill">MS Excel</span>
+          <span class="pill">MS Word</span>
+        </div>
+      </div>
+
+      <div class="stack-row gs-reveal">
+        <div class="stack-cat">05 / Coursework</div>
+        <div class="pill-wrap" style="margin-top: 0;">
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">Data Structures</span>
+          <span class="pill">Web Development</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Operating Systems</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / Education -->
+    <section id="education">
+      <div class="sec-head">
+        <div>
+          <span class="mono">[04] — ACADEMIC QUALIFICATION</span>
+          <h2>Education Timeline</h2>
+        </div>
+        <span class="mono">2020 — 2026</span>
+      </div>
+
+      <div class="edu-grid">
+        <div class="bento-card gs-reveal">
+          <span class="mono">2022 – 2026</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin: 0.75rem 0 0.4rem;">
+            UG: Bachelor of Computer Applications (BCA)
+          </h3>
+          <p style="color: var(--muted); font-size: 0.92rem;">Loyola College of Arts and Science</p>
+          <p style="color: var(--red); font-weight: 700; margin-top: 0.8rem; font-size: 0.9rem;">CGPA: 6.5</p>
+        </div>
+
+        <div class="bento-card gs-reveal">
+          <span class="mono">2022</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin: 0.75rem 0 0.4rem;">
+            HSC – 12th Standard
+          </h3>
+          <p style="color: var(--muted); font-size: 0.92rem;">Sri Ramakrishna Saradha Higher Secondary School</p>
+        </div>
+
+        <div class="bento-card gs-reveal">
+          <span class="mono">2020</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin: 0.75rem 0 0.4rem;">
+            SSLC – 10th Standard
+          </h3>
+          <p style="color: var(--muted); font-size: 0.92rem;">Sri Ramakrishna Saradha Higher Secondary School</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / Contact & Profile Details -->
+    <section id="contact">
+      <div class="cta-box gs-reveal">
+        <div>
+          <span class="mono">[05] — PROFILE &amp; CONTACT</span>
+          <h2 class="cta-title">Connect With <span class="grad-text">Jegath M</span></h2>
+          <p style="color: var(--muted); font-size: 0.95rem;">
+            Open to entry-level Web Developer, Software Developer, and Database support roles.
+          </p>
+
+          <div class="profile-details-list">
+            <div class="detail-row">
+              <span class="detail-label">Name</span>
+              <span class="detail-val">Jegath M</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Email</span>
+              <a href="mailto:jegath.mahe@gmail.com" class="detail-val" style="color: var(--blue);">jegath.mahe@gmail.com</a>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Location</span>
+              <span class="detail-val">Salem, Tamil Nadu – 636302</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Qualification</span>
+              <span class="detail-val">BCA (2022–2026) • CGPA: 6.5</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Languages</span>
+              <span class="detail-val">English &amp; Tamil</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">GitHub</span>
+              <a href="https://github.com/Jegath-codes" target="_blank" rel="noopener noreferrer" class="detail-val">github.com/Jegath-codes ↗</a>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.9rem;">
+            <button type="button" id="copyEmailBtn" class="mag-btn primary hover-target">Copy Email Address</button>
+            <a href="https://jegath-codes.github.io/jegath-portfolio/" target="_blank" rel="noopener noreferrer" class="mag-btn hover-target">Portfolio Link ↗</a>
+          </div>
+        </div>
+
+        <form class="form-box" id="contactForm">
+          <span class="mono">SEND A MESSAGE TO JEGATH M</span>
+          <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 0.25rem;">
+            Visitors &amp; recruiters can email <strong>jegath.mahe@gmail.com</strong> directly:
+          </p>
+          <input type="text" id="senderName" placeholder="Your Name" required />
+          <input type="email" id="senderEmail" placeholder="Your Email" required />
+          <textarea id="senderMessage" rows="4" placeholder="Message for Jegath M..." required></textarea>
+          <button type="submit" class="mag-btn primary hover-target" style="width: fit-content;">Send Message →</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 JEGATH M • SALEM, TAMIL NADU, INDIA</span>
+      <span class="mono">JEGATH.MAHE@GMAIL.COM</span>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">jegath.mahe@gmail.com copied!</div>
+
+  <!-- Three.js & GSAP CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    // 0. Hero Typing Animation (Fresher Roles)
+    const typedEl = document.getElementById('typedRole');
+    const roles = [
+      "FULL STACK WEB DEVELOPER",
+      "ASPIRING SOFTWARE DEVELOPER",
+      "CREATIVE WEB DESIGNER",
+      "BCA GRADUATE • FRESHER"
+    ];
+    let roleIdx = 0;
+    let charIdx = roles[0].length;
+    let isDeleting = true;
+
+    function runTyping() {
+      const current = roles[roleIdx];
+      if (isDeleting) {
+        charIdx--;
+        typedEl.textContent = current.substring(0, charIdx);
+        if (charIdx <= 0) {
+          isDeleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+          setTimeout(runTyping, 320);
+          return;
+        }
+        setTimeout(runTyping, 40);
+      } else {
+        charIdx++;
+        typedEl.textContent = current.substring(0, charIdx);
+        if (charIdx >= current.length) {
+          isDeleting = true;
+          setTimeout(runTyping, 1900);
+          return;
+        }
+        setTimeout(runTyping, 75);
+      }
+    }
+    setTimeout(runTyping, 2200);
+
+    // 1. Bento Hover Radial Light
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // 2. Smooth 3D Mouse Tilt for Floating Tech Chips
+    const avatarRig = document.getElementById('avatarRig');
+    let targetMX = 0, targetMY = 0, curMX = 0, curMY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      targetMX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetMY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    function animateChips3D(time) {
+      const t = time * 0.001;
+      curMX += (targetMX - curMX) * 0.06;
+      curMY += (targetMY - curMY) * 0.06;
+
+      const autoYaw = Math.sin(t * 1.0) * 10;
+      const autoPitch = Math.cos(t * 0.8) * 4;
+      const yaw = autoYaw + curMX * 14;
+      const pitch = autoPitch - curMY * 10;
+
+      if (avatarRig) {
+        avatarRig.style.transform = `rotateY(${yaw.toFixed(2)}deg) rotateX(${pitch.toFixed(2)}deg)`;
+      }
+      requestAnimationFrame(animateChips3D);
+    }
+    requestAnimationFrame(animateChips3D);
+
+    // 3. Magnetic Cursor
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    if (window.matchMedia('(pointer: fine)').matches) {
+      let cx = window.innerWidth / 2, cy = window.innerHeight / 2, rx = cx, ry = cy;
+      window.addEventListener('mousemove', (e) => {
+        cx = e.clientX; cy = e.clientY;
+        cursorDot.style.left = `${cx}px`;
+        cursorDot.style.top = `${cy}px`;
+      });
+      function renderCursor() {
+        rx += (cx - rx) * 0.16;
+        ry += (cy - ry) * 0.16;
+        cursorRing.style.left = `${rx}px`;
+        cursorRing.style.top = `${ry}px`;
+        requestAnimationFrame(renderCursor);
+      }
+      renderCursor();
+      document.querySelectorAll('.hover-target, a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => cursorRing.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursorRing.classList.remove('active'));
+      });
+    }
+
+    // 4. Copy Email & Mailto Form
+    const toast = document.getElementById('toast');
+    document.getElementById('copyEmailBtn').addEventListener('click', () => {
+      navigator.clipboard.writeText('jegath.mahe@gmail.com').then(() => {
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('senderName').value;
+      const email = document.getElementById('senderEmail').value;
+      const msg = document.getElementById('senderMessage').value;
+      const subject = encodeURIComponent(`Portfolio Inquiry for Jegath M from ${name}`);
+      const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${msg}`);
+      window.location.href = `mailto:jegath.mahe@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // 5. GSAP Preloader & Scroll Animations
+    const preloader = document.getElementById('preloader');
+    const preCount = document.getElementById('preCount');
+    const preBar = document.getElementById('preBar');
+
+    if (typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      const counter = { val: 0 };
+      const tl = gsap.timeline();
+
+      tl.to(counter, {
+        val: 100,
+        duration: 0.9,
+        ease: 'power2.out',
+        onUpdate: () => {
+          const p = Math.round(counter.val);
+          preCount.textContent = `${p}%`;
+          preBar.style.width = `${p}%`;
+        }
+      })
+      .to(preloader, {
+        yPercent: -100,
+        duration: 0.7,
+        ease: 'power4.inOut',
+        onComplete: () => { preloader.style.display = 'none'; }
+      })
+      .from('.hero-anim', {
+        yPercent: 115,
+        duration: 0.85,
+        stagger: 0.12,
+        ease: 'power4.out'
+      }, '-=0.3')
+      .from('.hero-fade', {
+        y: 25,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out'
+      }, '-=0.45');
+
+      gsap.utils.toArray('.gs-reveal').forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: { trigger: el, start: 'top 86%', once: true },
+          y: 40,
+          opacity: 0,
+          duration: 0.75,
+          ease: 'power3.out'
+        });
+      });
+    } else {
+      preloader.style.display = 'none';
+    }
+
+    // 6. Three.js Background + Center 3D Holographic Quantum Core
+    if (typeof THREE !== 'undefined') {
+      // --- A. BACKGROUND 3D GALAXY & TORUS KNOT ---
+      const canvas = document.getElementById('webgl-bg');
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 6;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const knotGeo = new THREE.TorusKnotGeometry(1.75, 0.48, 130, 20);
+      const wireMat = new THREE.MeshBasicMaterial({
+        color: 0x9d4edd,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.11
+      });
+      const knotMesh = new THREE.Mesh(knotGeo, wireMat);
+
+      const pointsMat = new THREE.PointsMaterial({
+        color: 0xff1e56,
+        size: 0.03,
+        transparent: true,
+        opacity: 0.65
+      });
+      const knotPoints = new THREE.Points(knotGeo, pointsMat);
+
+      const sculptureGroup = new THREE.Group();
+      sculptureGroup.add(knotMesh);
+      sculptureGroup.add(knotPoints);
+      sculptureGroup.position.set(0, -0.2, -2.5);
+      scene.add(sculptureGroup);
+
+      const starCount = 900;
+      const starPos = new Float32Array(starCount * 3);
+      const starColors = new Float32Array(starCount * 3);
+      const palette = [
+        new THREE.Color(0xff1e56),
+        new THREE.Color(0x0096ff),
+        new THREE.Color(0x9d4edd)
+      ];
+
+      for (let i = 0; i < starCount; i++) {
+        starPos[i * 3] = (Math.random() - 0.5) * 22;
+        starPos[i * 3 + 1] = (Math.random() - 0.5) * 22;
+        starPos[i * 3 + 2] = (Math.random() - 0.5) * 18;
+
+        const c = palette[i % 3];
+        starColors[i * 3] = c.r;
+        starColors[i * 3 + 1] = c.g;
+        starColors[i * 3 + 2] = c.b;
+      }
+
+      const starGeo = new THREE.BufferGeometry();
+      starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+      starGeo.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+      const starMat = new THREE.PointsMaterial({
+        size: 0.045,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.82
+      });
+      const stars = new THREE.Points(starGeo, starMat);
+      scene.add(stars);
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      const clock = new THREE.Clock();
+      function animate3DScene() {
+        requestAnimationFrame(animate3DScene);
+        const t = clock.getElapsedTime();
+        const maxScroll = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+        const scrollRatio = window.scrollY / maxScroll;
+
+        sculptureGroup.position.x = Math.sin(scrollRatio * Math.PI * 2) * 2.2;
+        sculptureGroup.rotation.y = t * 0.2 + scrollRatio * 4.5 + curMX * 0.4;
+        sculptureGroup.rotation.x = t * 0.12 + scrollRatio * 2.0 + curMY * 0.4;
+
+        stars.rotation.y = t * 0.03 + curMX * 0.12;
+        stars.rotation.x = curMY * 0.08;
+
+        renderer.render(scene, camera);
+      }
+      animate3DScene();
+
+      // --- B. CENTER HERO 3D HOLOGRAPHIC QUANTUM CORE ---
+      const coreStage = document.getElementById('coreStage');
+      const heroCanvas = document.getElementById('hero-3d-core');
+
+      if (coreStage && heroCanvas) {
+        const initW = coreStage.clientWidth || 460;
+        const initH = coreStage.clientHeight || 410;
+
+        const coreScene = new THREE.Scene();
+        const coreCam = new THREE.PerspectiveCamera(45, initW / initH, 0.1, 100);
+        coreCam.position.z = 5.6;
+
+        const coreRenderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+        coreRenderer.setSize(initW, initH);
+        coreRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // 3D Colored Neon Lights
+        coreScene.add(new THREE.AmbientLight(0xffffff, 0.5));
+        const lightRed = new THREE.PointLight(0xff1e56, 3.8, 14);
+        const lightBlue = new THREE.PointLight(0x0096ff, 3.8, 14);
+        const lightViolet = new THREE.PointLight(0x9d4edd, 3.2, 14);
+        coreScene.add(lightRed, lightBlue, lightViolet);
+
+        const masterCore = new THREE.Group();
+        coreScene.add(masterCore);
+
+        // 1. Inner Glowing Nucleus
+        const nucleusMesh = new THREE.Mesh(
+          new THREE.OctahedronGeometry(0.45, 0),
+          new THREE.MeshBasicMaterial({ color: 0xff1e56, wireframe: true, transparent: true, opacity: 0.92 })
+        );
+        masterCore.add(nucleusMesh);
+
+        // 2. Faceted Glossy Crystal Icosahedron + Glowing Cyan Edges
+        const crystalGeo = new THREE.IcosahedronGeometry(0.9, 0);
+        const crystalMat = new THREE.MeshPhongMaterial({
+          color: 0x160a2e,
+          emissive: 0x4c1d95,
+          emissiveIntensity: 0.65,
+          specular: 0x38bdf8,
+          shininess: 120,
+          flatShading: true,
+          transparent: true,
+          opacity: 0.9
+        });
+        const crystalMesh = new THREE.Mesh(crystalGeo, crystalMat);
+        crystalMesh.add(new THREE.LineSegments(
+          new THREE.EdgesGeometry(crystalGeo),
+          new THREE.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.8 })
+        ));
+        masterCore.add(crystalMesh);
+
+        // 3. Outer Geodesic Wireframe Energy Shield + Vertex Dots
+        const cageGeo = new THREE.IcosahedronGeometry(1.18, 1);
+        const cageWire = new THREE.Mesh(
+          cageGeo,
+          new THREE.MeshBasicMaterial({ color: 0x0096ff, wireframe: true, transparent: true, opacity: 0.28 })
+        );
+        const cageDots = new THREE.Points(
+          cageGeo,
+          new THREE.PointsMaterial({ color: 0xff1e56, size: 0.06, transparent: true, opacity: 0.95 })
+        );
+        const cageGroup = new THREE.Group();
+        cageGroup.add(cageWire, cageDots);
+        masterCore.add(cageGroup);
+
+        // 4. Three 3D Gyroscope Rings + Orbiting Satellites
+        function makeGyroRing(radius, tube, colorHex, tiltX, tiltY) {
+          const group = new THREE.Group();
+          group.rotation.x = tiltX;
+          group.rotation.y = tiltY;
+
+          const ring = new THREE.Mesh(
+            new THREE.TorusGeometry(radius, tube, 16, 100),
+            new THREE.MeshBasicMaterial({ color: colorHex, transparent: true, opacity: 0.85 })
+          );
+          group.add(ring);
+
+          const sat = new THREE.Mesh(
+            new THREE.SphereGeometry(0.065, 16, 16),
+            new THREE.MeshBasicMaterial({ color: 0xffffff })
+          );
+          sat.position.set(radius, 0, 0);
+          sat.add(new THREE.Mesh(
+            new THREE.SphereGeometry(0.12, 16, 16),
+            new THREE.MeshBasicMaterial({ color: colorHex, transparent: true, opacity: 0.45 })
+          ));
+          group.add(sat);
+
+          masterCore.add(group);
+          return group;
+        }
+
+        const gyro1 = makeGyroRing(1.48, 0.02, 0xff1e56, Math.PI * 0.36, Math.PI * 0.14);
+        const gyro2 = makeGyroRing(1.68, 0.017, 0x0096ff, -Math.PI * 0.34, -Math.PI * 0.22);
+        const gyro3 = makeGyroRing(1.86, 0.014, 0x9d4edd, Math.PI * 0.14, Math.PI * 0.42);
+
+        // 5. Swirling 3D Stardust Halo
+        const pCount = 240;
+        const pPos = new Float32Array(pCount * 3);
+        const pColors = new Float32Array(pCount * 3);
+        for (let i = 0; i < pCount; i++) {
+          const r = 1.35 + Math.random() * 1.05;
+          const theta = Math.random() * Math.PI * 2;
+          const phi = Math.acos(2 * Math.random() - 1);
+          pPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+          pPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+          pPos[i * 3 + 2] = r * Math.cos(phi);
+
+          const c = palette[i % 3];
+          pColors[i * 3] = c.r;
+          pColors[i * 3 + 1] = c.g;
+          pColors[i * 3 + 2] = c.b;
+        }
+        const pGeo = new THREE.BufferGeometry();
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        pGeo.setAttribute('color', new THREE.BufferAttribute(pColors, 3));
+        const particleHalo = new THREE.Points(
+          pGeo,
+          new THREE.PointsMaterial({ size: 0.045, vertexColors: true, transparent: true, opacity: 0.9 })
+        );
+        masterCore.add(particleHalo);
+
+        // Hover & Click Turbo Pulse Interaction
+        let isHovered = false;
+        let pulseBoost = 0;
+        coreStage.addEventListener('mouseenter', () => { isHovered = true; });
+        coreStage.addEventListener('mouseleave', () => { isHovered = false; });
+        coreStage.addEventListener('click', () => { pulseBoost = 1.0; });
+
+        window.addEventListener('resize', () => {
+          const w = coreStage.clientWidth || 400;
+          const h = coreStage.clientHeight || 350;
+          coreCam.aspect = w / h;
+          coreCam.updateProjectionMatrix();
+          coreRenderer.setSize(w, h);
+        });
+
+        const coreClock = new THREE.Clock();
+        function renderHeroCore() {
+          requestAnimationFrame(renderHeroCore);
+          const t = coreClock.getElapsedTime();
+
+          pulseBoost *= 0.93;
+          const speed = (isHovered ? 1.8 : 1.0) + pulseBoost * 4.5;
+
+          lightRed.position.set(Math.cos(t * 1.4) * 3.2, Math.sin(t * 1.1) * 2.2, 2.5);
+          lightBlue.position.set(Math.sin(t * 1.2) * -3.2, Math.cos(t * 1.5) * 2.2, 2.2);
+          lightViolet.position.set(0, Math.sin(t * 0.9) * 3.0, -2.5);
+
+          masterCore.position.y = Math.sin(t * 1.6) * 0.1;
+          masterCore.rotation.y += (curMX * 0.75 - masterCore.rotation.y) * 0.06;
+          masterCore.rotation.x += (curMY * 0.5 - masterCore.rotation.x) * 0.06;
+          masterCore.scale.setScalar(1 + pulseBoost * 0.15);
+
+          const breathe = 1 + Math.sin(t * 2.5) * 0.05;
+          nucleusMesh.rotation.y -= 0.025 * speed;
+          nucleusMesh.rotation.x += 0.015 * speed;
+
+          crystalMesh.scale.setScalar(breathe);
+          crystalMesh.rotation.y += 0.012 * speed;
+          crystalMesh.rotation.x += 0.008 * speed;
+
+          cageGroup.rotation.y -= 0.008 * speed;
+          cageGroup.rotation.z += 0.005 * speed;
+
+          gyro1.rotation.z += 0.02 * speed;
+          gyro2.rotation.z -= 0.017 * speed;
+          gyro3.rotation.z += 0.014 * speed;
+          gyro3.rotation.x += 0.004 * speed;
+
+          particleHalo.rotation.y += 0.005 * speed;
+          particleHalo.rotation.x = Math.sin(t * 0.5) * 0.2;
+
+          coreRenderer.render(coreScene, coreCam);
+        }
+        renderHeroCore();
+      }
+    }
+  </script>
+</body>
+  </html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEGATH M — 3D Motion Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #04020a;
+      --surface: rgba(14, 10, 28, 0.62);
+      --surface-hover: rgba(24, 16, 48, 0.78);
+      --border: rgba(255, 255, 255, 0.12);
+      --text: #f8fafc;
+      --muted: #a1a1aa;
+      --red: #ff1e56;
+      --blue: #0096ff;
+      --violet: #9d4edd;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Animated Red + Blue + Violet Aurora Lights */
+    .aurora-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .aurora-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.34;
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+
+    .blob-red { width: 500px; height: 500px; background: var(--red); top: -120px; left: -120px; }
+    .blob-blue { width: 540px; height: 540px; background: var(--blue); top: 20%; right: -150px; animation-delay: -5s; }
+    .blob-violet { width: 520px; height: 520px; background: var(--violet); bottom: -150px; left: 25%; animation-delay: -9s; }
+
+    @keyframes drift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(65px, -50px) scale(1.18); }
+    }
+
+    /* Film Grain & Three.js Canvas */
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: radial-gradient(#ffffff 0.6px, transparent 0.6px);
+      background-size: 18px 18px;
+    }
+
+    #webgl-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Custom Magnetic Cursor */
+    .cursor-dot, .cursor-ring {
+      position: fixed;
+      top: 0; left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    @media (pointer: fine) {
+      .cursor-dot, .cursor-ring { display: block; }
+      body, a, button, input, textarea { cursor: none; }
+    }
+
+    .cursor-dot { width: 7px; height: 7px; background: var(--red); box-shadow: 0 0 12px var(--red); }
+    .cursor-ring {
+      width: 38px; height: 38px;
+      border: 1.5px solid rgba(0, 150, 255, 0.7);
+      transition: width 0.25s, height 0.25s, background 0.25s, border-color 0.25s;
+    }
+    .cursor-ring.active {
+      width: 60px; height: 60px;
+      background: rgba(157, 78, 221, 0.16);
+      border-color: var(--red);
+    }
+
+    /* Preloader Curtain */
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: #04020a;
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2.5rem;
+    }
+
+    .preloader-top {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .preloader-count {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(4rem, 12vw, 9rem);
+      font-weight: 800;
+      line-height: 0.9;
+      background: linear-gradient(90deg, var(--red), var(--violet), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .preloader-bar-wrap {
+      width: 100%; height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .preloader-bar {
+      width: 0%; height: 100%;
+      background: linear-gradient(90deg, var(--red), var(--violet), var(--blue));
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .grad-text {
+      background: linear-gradient(90deg, var(--red), var(--violet), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+      position: relative;
+      z-index: 2;
+    }
+
     /* Navbar */
     header {
       position: fixed;
